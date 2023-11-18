@@ -28,9 +28,9 @@ int main() {
 
 	printf("The server send the response: %s\n",buffer);
 	
-	char message[256]s;
+	char message[256];
 	printf("Send message to server: ");
-	scanf("%s",message);
+	scanf("%s", message);
 	send(network_socket,message,strlen(message),0);
 	
 	close(network_socket);
