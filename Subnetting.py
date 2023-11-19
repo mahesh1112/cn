@@ -40,17 +40,20 @@ if is_valid_IPv4(IP):
             print("Class C IP Address")
             print("SUBNET MASK: ", mask)
         elif 224 <= class_check <= 239:
-            mask = "255.0.0.0"
+            #mask = "255.0.0.0"
             print("Class D IP Address")
-            print("SUBNET MASK: ", mask)
+            #print("SUBNET MASK: ", mask)
         elif 240 <= class_check <= 254:
-            mask = "255.0.0.0"
+            #mask = "255.0.0.0"
             print("Class E IP Address")
-            print("SUBNET MASK: ", mask)
+            #print("SUBNET MASK: ", mask)
 
-        network_address, host_address = calculate_network_host_addresses(IP, mask)
-        print("NETWORK ADDRESS:", network_address)
-        print("HOST ADDRESS:", host_address)
+        if(class_check >= 224):
+            network_address, host_address = calculate_network_host_addresses(IP, mask)
+            print("NETWORK ADDRESS:", network_address)
+            print("HOST ADDRESS:", host_address)
+        else:
+            print("This class has no subnet mask")
 
 else:
     print("Invalid IP Address")
